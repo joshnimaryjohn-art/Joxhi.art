@@ -49,6 +49,17 @@ body {
   align-items: center;
 }
 
+.hero-container {
+  max-width: 1400px; 
+  margin: 0 auto;    
+  position: relative;
+}
+
+
+.hero {
+  position: relative; 
+}
+
 .pfp {
   width: 400px;
   height: 400px;
@@ -218,8 +229,6 @@ body {
   transform: scale(1.01);
 }
 
-
-/* Full-size image popup */
 .image-popup {
   display: none;
   position: fixed;
@@ -244,14 +253,10 @@ body {
   color: white;
   cursor: pointer;
 }
-
-/* ===============================
-   CLOSE BUTTON (FIXED PROPERLY)
-================================ */
 .close {
   position: absolute;
 
-  /* ⬇️ PUSHED IN FROM EDGE SO IT SITS ON ART */
+  
   top: 65px;
   right: 70px;
   background: none;
@@ -386,10 +391,30 @@ body {
 .close img:hover {
   transform: scale(1.05);
 }
-
-/* Click/Active: slightly smaller */
 .menu button img:active,
 .icon-wrapper img:active,
 .close img:active {
   transform: scale(0.95);
 }
+@media (max-width: 1400px) {
+  .pfp {
+    margin-left: 0;
+    width: 350px;
+    height: 350px;
+  }
+
+  .hoihoi-img {
+    width: 230px;
+    top: -80px;
+  }
+
+  .logo-img {
+    width: 260px;
+  }
+
+  .intro p {
+    font-size: 1.6rem;
+    top: 220px;
+  }
+}
+
