@@ -219,7 +219,7 @@ body {
 /* ADJUSTMENT 2: CLOSE BUTTON MOVED UP */
 .close {
   position: absolute;
-  top: 35px; /* <--- Decreased value to push it up towards the top edge */
+  top: 40px; /* <--- Decreased value to push it up towards the top edge */
   right: 70px;
   background: none;
   border: white;
@@ -326,3 +326,4 @@ body {
 .menu button img, .icon-wrapper img, .close img { transition: transform 0.15s ease; }
 .menu button img:hover, .icon-wrapper img:hover, .close img:hover { transform: scale(1.05); }
 .menu button img:active, .icon-wrapper img:active, .close img:active { transform: scale(0.95); }
+
