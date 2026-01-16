@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joxhi | Illustrator & 3D Artist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+  <span class="top-hearts symbols">♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥</span>
+</div>
+
+    <div></div>
+    <div></div>
+  </div>
+
+  <section class="hero">
+    <div class="pfp">
+      <img src="assets/chibi.png" alt="Joxhi chibi">
+    </div>
+    <div class="intro">
+      <img src="assets/hoihoi.png" alt="Hoihoi" class="hoihoi-img">
+  <img src="assets/joxhilogo.png" alt="Joxhi Logo" class="logo-img">
+  <p>an illustrator 
+    <span class="symbols">&</span>
+    <span class="symbols">3D</span> 
+    artist</p>
+</div>
+
+  </section>
+
+  <nav class="menu">
+    <button onclick="openPopup('about')"><img src="assets/aboutme.png">about me</button>
+    <button onclick="openPopup('works')"><img src="assets/works.png">works</button>
+    <button onclick="openPopup('fun')"><img src="assets/funfacts.png">fun facts</button>
+    <button onclick="openPopup('contact')"><img src="assets/email.png">contact me</button>
+  </nav>
+
+  <div class="overlay" id="overlay">
+
+    <div class="popup" id="about">
+  <img src="assets/popup.png" class="popup-bg" alt="popup background">
+
+  <div class="popup-content">
+    <h2>About Me</h2>
+    <p>Hihi<span class="symbols">!</span><span class="symbols">!</span> Im Joxhi<span class="symbols">,</span> an Animation student who focuses more on Illustrations and <span class="symbols">3</span>D arts<span class="symbols">.</span> Art for me is a way to show the ideas in my head<span class="symbols">.</span></p>
+
+<p>Others would describe me as kind and dependable<span class="symbols">.</span> I love creating characters with stories and emotion<span class="symbols">♥</span></p>
+
+  </div>
+
+  <button class="close" onclick="closePopup()"><img src="assets/closingheart.png"></button>
+
+  <button class="scroll-arrow" onclick="scrollPopup('about', 140)">
+    <img src="assets/scrolling triangle.png" alt="scroll-arrow">
+  </button>
+</div>
+
+    <div class="popup" id="works">
+  <img src="assets/popup.png" class="popup-bg" alt="popup background">
+
+  <div class="popup-content">
+    <h2>My Works</h2>
+    <p>Here you can see most of my 
+      <span class="symbols">3D</span>
+       works and illustrations.</p> 
+       <div class="popup-content">
+  
+
+  <div class="gallery">
+   
+    <img src="assets/arta.jpg" alt="Art a" class="thumb" onclick="openImagePopup('assets/arta.jpg')">
+    <img src="assets/artb.jpg" alt="Art b" class="thumb" onclick="openImagePopup('assets/artb.jpg')">
+    <img src="assets/artc.jpg" alt="Art c" class="thumb" onclick="openImagePopup('assets/artc.jpg')">
+    <img src="assets/artd.jpg" alt="Art d" class="thumb" onclick="openImagePopup('assets/artd.jpg')">
+    <img src="assets/arte.jpg" alt="Art e" class="thumb" onclick="openImagePopup('assets/arte.jpg')">
+    <img src="assets/artf.jpg" alt="Art f" class="thumb" onclick="openImagePopup('assets/artf.jpg')">
+    <img src="assets/artg.jpg" alt="Art g" class="thumb" onclick="openImagePopup('assets/artg.jpg')">
+    <img src="assets/arth.jpg" alt="Art h" class="thumb" onclick="openImagePopup('assets/arth.jpg')">
+
+    <img src="assets/tdsa.jpg" alt="tdsa" class="thumb" onclick="openImagePopup('assets/tdsa.jpg')">
+    <img src="assets/tdsb.jpg" alt="tdsb" class="thumb" onclick="openImagePopup('assets/tdsb.jpg')">
+    <img src="assets/tdsc.jpg" alt="tdsc" class="thumb" onclick="openImagePopup('assets/tdsc.jpg')">
+  </div>
+</div>
+
+  </div>
+      
+      <button class="close" onclick="closePopup()"><img src="assets/closingheart.png"></button>
+       <button class="scroll-arrow" onclick="scrollPopup('about', 140)">
+    <img src="assets/scrolling triangle.png" alt="scroll-arrow">
+  </button>
+    </div>
+
+    <div class="popup" id="fun">
+     <img src="assets/popup.png" class="popup-bg" alt="popup background"> 
+      <div class="popup-content">
+        <h2>Fun Facts</h2>
+     
+<p><span class="symbols">1</span><span class="symbols">.</span> Playing games is my favorite<span class="symbols">-</span>especially rhythm and gacha games <span class="symbols">(</span>I often stay up late heh<span class="symbols">)</span><span class="symbols">.</span></p>
+<p><span class="symbols">2</span><span class="symbols">.</span> Im ambidextrous<span class="symbols">-</span>so I can draw with both hands<span class="symbols">!</span></p>
+<p><span class="symbols">3</span><span class="symbols">.</span> Favorite game<span class="symbols">:</span> Honkai Star Rail</p>
+<p><span class="symbols">4</span><span class="symbols">.</span> Favorite food<span class="symbols">:</span> Noodles <span class="symbols">♥</span></p>
+<p><span class="symbols">5</span><span class="symbols">.</span> Favorite shapes<span class="symbols">:</span> Hearts <span class="symbols">♥</span></p>
+
+      </div>
+      <button class="close" onclick="closePopup()"><img src="assets/closingheart.png"></button>
+      <button class="scroll-arrow" onclick="scrollPopup('about', 140)">
+    <img src="assets/scrolling triangle.png" alt="scroll-arrow">
+  </button>
+    </div>
+
+    <div class="popup" id="contact">
+      <img src="assets/popup.png" class="popup-bg" alt="popup background">
+      <div class="popup-content">
+       <h2>Contact Me</h2>
+
+<p>Hey hey<span class="symbols">!</span> If you want to say hi<span class="symbols">,</span> send me fan art<span class="symbols">,</span> or just talk about games<span class="symbols">,</span> you know where to find me <span class="symbols">♥</span></p>
+<p>All my email and social media links are in the footer below<span class="symbols">.</span></p>
+<p>Bonus points if you send me something chaotic or cute<span class="symbols">!</span></p>
+
+      </div>
+      <button class="close" onclick="closePopup()"><img src="assets/closingheart.png"></button>
+      <button class="scroll-arrow" onclick="scrollPopup('about', 140)">
+    <img src="assets/scrolling triangle.png" alt="scroll-arrow">
+  </button>
+    </div>
+
+  </div>
+
+<div class="footer-wrapper">
+
+  <div class="heart-divider symbols">
+    ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-icons">
+  <a href="https://mail.google.com/mail/?view=cm&to=joshnimaryjohn@gmail.com" class="icon-wrapper">
+    <img src="assets/email-link.png" alt="email">
+  </a>
+  <a href="https://www.instagram.com/theonly_jo_/" class="icon-wrapper">
+    <img src="assets/instagram.png" alt="instagram">
+  </a>
+  <a href="https://x.com/JoshniMary" class="icon-wrapper">
+    <img src="assets/twitter.png" alt="twitter">
+  </a>
+</div>
+
+
+    <p class="footer-text">soft chaos by joxhi</p>
+    <div class="footer-hearts">♥ ♥ ♥ ♥ ♥</div>
+  </footer>
+
+</div>
+
+<div class="image-popup" id="imagePopup">
+  <span class="close" onclick="closeImagePopup()">&times;</span>
+  <img id="fullImage" src="" alt="Artwork">
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
