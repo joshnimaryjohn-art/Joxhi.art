@@ -16,13 +16,13 @@
 
 body {
   font-family: 'Monday Feelings', cursive;
-}
-
-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* This ensures that if the content is still too tall, 
+     you can at least scroll to the footer */
+  overflow-y: auto; 
+  overflow-x: hidden;
 }
 
 
@@ -43,7 +43,6 @@ body {
   letter-spacing: 1rem;
   white-space: nowrap;     /* Keeps the hearts in one single line */
 }
-/* This container keeps everything centered and prevents overlapping */
 .content-container {
   display: flex;
   flex-direction: column;
@@ -51,22 +50,26 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  /* Add this to prevent it from growing too tall */
+  max-height: calc(100vh - 150px); 
 }
 
 .hero {
-  display: flex; /* Side-by-side layout */
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 50px 20px;
+  /* Reduced top/bottom padding from 50px to 20px */
+  padding: 20px 20px 10px; 
   width: 100%;
 }
 
 .pfp {
-  width: 320px;
-  height: 320px;
+  /* Reduced from 320px to 250px to save vertical space */
+  width: 250px; 
+  height: 250px;
   border-radius: 50%;
-  border: 10px solid #ff887d;
+  border: 8px solid #ff887d; /* Slightly thinner border */
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
