@@ -2,12 +2,10 @@
   font-family: 'Monday Feelings';
   src: url('fonts/MondayFeelings.ttf') format('truetype');
 }
-
 :root {
   --peach: #f8a9a0;
   --peach-light: #fde1dc;
   --dark: #2b2b2b;
-  --red-accent: #d74234;
 }
 
 * {
@@ -18,89 +16,87 @@
 
 body {
   font-family: 'Monday Feelings', cursive;
+}
+
+body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* TOP BAR */
+
 .top-bar {
   width: 100%;
-  height: 30px;
-  background: var(--red-accent);
+  height: 27px;
+  background: #d74234;
+  /* Add these 3 lines */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  justify-content: center; /* This centers horizontally */
+  align-items: center;     /* This centers vertically */
+  overflow: hidden;        /* Keeps the hearts from leaking out */
 }
 
 .top-hearts {
   color: var(--peach);
+  font-size: 1.5rem;
   letter-spacing: 1rem;
-  font-size: 1.2rem;
-  white-space: nowrap;
+  white-space: nowrap;     /* Keeps the hearts in one single line */
+}
+/* This container keeps everything centered and prevents overlapping */
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* HERO SECTION (PFP + LOGO) */
 .hero {
-  display: flex; /* Changed from Grid to Flex for better centering */
+  display: flex; /* Side-by-side layout */
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 60px 20px 20px;
+  padding: 50px 20px;
   width: 100%;
 }
 
 .pfp {
-  width: 300px; /* Scaled down to match sketch proportion */
-  height: 300px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   border: 10px solid #ff887d;
+  flex-shrink: 0;
   overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  align-items: center;
 }
 
 .pfp img {
-  width: 110%; /* Slight zoom to fit circular frame */
+  width: 100%;
   height: auto;
 }
 
-/* INTRO TEXT BOX */
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: flex-start; /* Keeps text aligned to the left of the logo */
 }
 
-.hoihoi-img {
-  width: 200px;
-  margin-bottom: -10px; /* Pulls logo closer to hoihoi */
-}
+/* Fix for the overlapping images */
+.hoihoi-img { width: 220px; margin-bottom: -15px; }
+.logo-img { width: 300px; }
+.intro p { font-size: 1.8rem; margin-top: 10px; }
 
-.logo-img {
-  width: 280px;
-  margin-bottom: 10px;
-}
-
-.intro p {
-  font-size: 1.8rem;
-  color: var(--dark);
-  margin-left: 10px;
-}
-
-/* NAVIGATION MENU (The Icons) */
+/* MENU BOX - No more absolute positioning! */
 .menu {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-end; /* Aligns icons and text at the bottom */
-  gap: 3rem;
-  padding: 40px 0;
+  gap: 2rem;
+  padding: 20px;
   width: 100%;
 }
 
@@ -108,74 +104,280 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 180px; /* Adjust based on your icon size */
   font-family: 'Monday Feelings', cursive;
-  font-size: 1.3rem;
-  transition: transform 0.2s ease;
+  font-size: 1.2rem;
 }
 
 .menu img {
-  width: 120px; /* Standardized icon size */
+  width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 5px;
 }
 
-/* FOOTER AREA */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+
+.popup {
+  position: relative;
+  width: 80vw;       
+  max-width: 900px;  
+  height: 80vh;      
+  max-height: 800px; 
+  display: none;
+  overflow: hidden;
+  border-radius: 15px; 
+}
+
+.popup-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+.popup-content {
+  position: absolute;
+
+  top: 120px;
+  left: 55px;
+  right: 60px;
+  bottom: 35px;
+
+  overflow-y: auto;
+  z-index: 2;
+  padding-right: 20px;
+}
+
+.popup-content h2 {
+  font-size: 2.2rem; 
+  margin-bottom: 15px;
+}
+
+
+.popup-content p {
+  font-size: 1.5rem; 
+  line-height: 1.5;  
+}
+
+
+
+.popup-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+  background: #f2b8a2;
+  border-radius: 10px;
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px;
+  margin-top: 15px;
+}
+
+
+.thumb {
+  width: 100%;
+  height: auto; 
+  display: block;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+
+.thumb:hover {
+  transform: scale(1.01);
+}
+
+
+/* Full-size image popup */
+.image-popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.image-popup img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.image-popup .close {
+  position: absolute;
+  top: 20px; right: 40px;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===============================
+   CLOSE BUTTON (FIXED PROPERLY)
+================================ */
+.close {
+  position: absolute;
+
+  /* ⬇️ PUSHED IN FROM EDGE SO IT SITS ON ART */
+  top: 65px;
+  right: 70px;
+  background: none;
+  border: white;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.close img {
+  width: 40px;
+  display: block;
+}
+
+/* ===============================
+   SCROLL ARROW (BOTTOM RIGHT)
+================================ */
+.scroll-arrow {
+  position: absolute;
+  right: 55px;
+  bottom: 55px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.scroll-arrow img {
+  width: 36px;
+  display: block;
+}
+
+
+/* FOOTER */
 .footer-wrapper {
   margin-top: auto;
   width: 100%;
 }
 
 .heart-divider {
+  width: 100%;
   text-align: center;
   color: var(--peach);
   font-size: 1.5rem;
-  letter-spacing: 1.2rem;
-  padding-bottom: 10px;
+  letter-spacing: 1rem;
+  margin-top: auto;
 }
 
 .site-footer {
-  background: var(--red-accent);
-  padding: 20px 0;
+  width: 100%;
+  background: #d74234;
+  padding: 1.2rem 0 1rem;
   text-align: center;
+  margin-top: auto;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 10px;
+  gap: 1.5rem;
+  align-items: center; /* vertically center icons */
+}
+
+.icon-wrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-wrapper img {
-  width: 40px;
-  filter: brightness(0) invert(1); /* Makes icons white */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* keeps icon inside box without stretching */
+  display: block;
 }
 
+/* TEXT */
 .footer-text {
+  font-size: 1.25rem;
   color: white;
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+  letter-spacing: 0.05rem;
 }
 
+/* HEARTS */
 .footer-hearts {
   color: white;
-  letter-spacing: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
 }
 
-/* RESPONSIVE FIX */
-@media (max-width: 850px) {
+/* CUSTOM SCROLLBAR (WEBKIT) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--peach);
+  border-radius: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .hero {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
   }
-  .intro {
-    align-items: center;
-  }
+
   .menu {
-    gap: 1.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
   }
+
+  .scroll-arrows {
+    right: -34px;
+  }
+}
+
+.symbols {
+  font-family: 'Poppins', sans-serif;
+}
+/* ICON HOVER & CLICK EFFECT */
+.menu button img,
+.icon-wrapper img,
+.close img {
+  transition: transform 0.15s ease; /* smooth animation */
+}
+
+/* Hover: slightly bigger */
+.menu button img:hover,
+.icon-wrapper img:hover,
+.close img:hover {
+  transform: scale(1.05);
+}
+
+/* Click/Active: slightly smaller */
+.menu button img:active,
+.icon-wrapper img:active,
+.close img:active {
+  transform: scale(0.95);
 }
