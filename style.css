@@ -64,8 +64,8 @@ body {
 }
 
 .pfp {
-  width: 250px; 
-  height: 250px;
+  width: 300px; 
+  height: 300px;
   border-radius: 50%;
   border: 8px solid #ff887d;
   flex-shrink: 0;
@@ -326,4 +326,5 @@ body {
 .menu button img, .icon-wrapper img, .close img { transition: transform 0.15s ease; }
 .menu button img:hover, .icon-wrapper img:hover, .close img:hover { transform: scale(1.05); }
 .menu button img:active, .icon-wrapper img:active, .close img:active { transform: scale(0.95); }
+
 
