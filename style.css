@@ -51,7 +51,6 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /* Removed the max-height limit so content flows naturally */
 }
 
 /* HERO SECTION */
@@ -87,11 +86,11 @@ body {
   align-items: flex-start;
 }
 
-/* ADJUSTMENT 1: Pushed Hoihoi down */
+/* ADJUSTMENT 1: Pushed Hoihoi down further */
 .hoihoi-img { 
   width: 220px; 
   margin-bottom: 5px; 
-  margin-top: 40px; /* <--- This brings hoihoi down */
+  margin-top: 75px; /* <--- Increased this value to push it down more */
 }
 
 .logo-img { width: 300px; }
@@ -105,7 +104,7 @@ body {
   gap: 2rem;
   padding: 20px;
   width: 100%;
-  /* ADJUSTMENT 2: Pushed footer down by adding space here */
+  /* Pushes footer down by adding space here */
   margin-bottom: 60px; 
 }
 
@@ -217,10 +216,10 @@ body {
   cursor: pointer;
 }
 
-/* CLOSE BUTTON */
+/* ADJUSTMENT 2: CLOSE BUTTON MOVED UP */
 .close {
   position: absolute;
-  top: 65px;
+  top: 35px; /* <--- Decreased value to push it up towards the top edge */
   right: 70px;
   background: none;
   border: white;
