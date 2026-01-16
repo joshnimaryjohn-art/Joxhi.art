@@ -1,3 +1,6 @@
+/* ===============================
+   FONT
+================================ */
 @font-face {
   font-family: 'Monday Feelings';
   src: url('fonts/MondayFeelings.ttf') format('truetype');
@@ -8,6 +11,9 @@
   --dark: #2b2b2b;
 }
 
+/* ===============================
+   RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -16,50 +22,49 @@
 
 body {
   font-family: 'Monday Feelings', cursive;
-}
-
-body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
-
+/* ===============================
+   TOP BAR
+================================ */
 .top-bar {
   width: 100%;
   height: 27px;
   background: #d74234;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
 }
 
 .top-hearts {
   font-size: 1rem;
-  color: #f8a9a0;
+  color: var(--peach);
   letter-spacing: 1rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+/* ===============================
+   HERO
+================================ */
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 4rem;
 }
 
 .hero {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2rem;
-  padding: 2rem 4rem 2rem;
   align-items: center;
-}
-
-.hero-container {
-  max-width: 1400px; 
-  margin: 0 auto;    
   position: relative;
 }
 
-
-.hero {
-  position: relative; 
-}
-
+/* PROFILE PIC */
 .pfp {
   width: 400px;
   height: 400px;
@@ -68,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 100px;
+  margin: 0;
 }
 
 .pfp img {
@@ -77,52 +82,43 @@ body {
   transform: translate(-5px, 0px);
 }
 
-.intro {
-  position: relative;
-  height: 220px;
-  margin-top: 1rem;
+/* INTRO ELEMENTS */
+.hoihoi-img,
+.logo-img,
+.intro p {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hoihoi-img {
-  position: absolute;
   top: -100px;
-  left: 28%;
-  transform: translateX(-50%);
   width: 275px;
 }
 
 .logo-img {
-  position: absolute;
   top: 20px;
-  left: 29%;
-  transform: translateX(-50%);
   width: 300px;
 }
 
 .intro p {
-  position: absolute;
   top: 250px;
-  left: 32%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-}
-
-
-.intro p {
-  margin-top: 0.4rem;
   font-size: 1.9rem;
+  margin-top: 0.4rem;
 }
 
+/* ===============================
+   MENU
+================================ */
 .menu {
   position: absolute;
-  right: 80px;      
+  right: 80px;
   top: 60%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: row;
   gap: 2.5rem;
 }
-
 
 .menu button {
   background: none;
@@ -137,28 +133,39 @@ body {
   width: 250px;
   display: block;
   margin: 0 auto 0.5rem;
+  transition: transform 0.15s ease;
 }
 
+.menu button img:hover {
+  transform: scale(1.05);
+}
+
+.menu button img:active {
+  transform: scale(0.95);
+}
+
+/* ===============================
+   OVERLAY & POPUPS
+================================ */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0,0,0,0.65);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-
 .popup {
   position: relative;
-  width: 80vw;       
-  max-width: 900px;  
-  height: 80vh;      
-  max-height: 800px; 
+  width: 80vw;
+  max-width: 900px;
+  height: 80vh;
+  max-height: 800px;
   display: none;
   overflow: hidden;
-  border-radius: 15px; 
+  border-radius: 15px;
 }
 
 .popup-bg {
@@ -170,33 +177,28 @@ body {
   pointer-events: none;
 }
 
-
 .popup-content {
   position: absolute;
-
   top: 120px;
   left: 55px;
   right: 60px;
   bottom: 35px;
-
   overflow-y: auto;
   z-index: 2;
   padding-right: 20px;
 }
 
 .popup-content h2 {
-  font-size: 2.2rem; 
+  font-size: 2.2rem;
   margin-bottom: 15px;
 }
 
-
 .popup-content p {
-  font-size: 1.5rem; 
-  line-height: 1.5;  
+  font-size: 1.5rem;
+  line-height: 1.5;
 }
 
-
-
+/* SCROLLBAR */
 .popup-content::-webkit-scrollbar {
   width: 10px;
 }
@@ -206,29 +208,29 @@ body {
   border-radius: 10px;
 }
 
-
+/* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   margin-top: 15px;
 }
 
-
 .thumb {
   width: 100%;
-  height: auto; 
-  display: block;
+  height: auto;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
-
 .thumb:hover {
   transform: scale(1.01);
 }
 
+/* ===============================
+   IMAGE POPUP
+================================ */
 .image-popup {
   display: none;
   position: fixed;
@@ -253,14 +255,14 @@ body {
   color: white;
   cursor: pointer;
 }
+
+/* CLOSE BUTTONS */
 .close {
   position: absolute;
-
-  
   top: 65px;
   right: 70px;
   background: none;
-  border: white;
+  border: none;
   cursor: pointer;
   z-index: 4;
 }
@@ -268,11 +270,18 @@ body {
 .close img {
   width: 40px;
   display: block;
+  transition: transform 0.15s ease;
 }
 
-/* ===============================
-   SCROLL ARROW (BOTTOM RIGHT)
-================================ */
+.close img:hover {
+  transform: scale(1.05);
+}
+
+.close img:active {
+  transform: scale(0.95);
+}
+
+/* SCROLL ARROW */
 .scroll-arrow {
   position: absolute;
   right: 55px;
@@ -288,8 +297,9 @@ body {
   display: block;
 }
 
-
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================ */
 .footer-wrapper {
   margin-top: auto;
   width: 100%;
@@ -309,14 +319,13 @@ body {
   background: #d74234;
   padding: 1.2rem 0 1rem;
   text-align: center;
-  margin-top: auto;
 }
 
 .footer-icons {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  align-items: center; /* vertically center icons */
+  align-items: center;
 }
 
 .icon-wrapper {
@@ -330,91 +339,43 @@ body {
 .icon-wrapper img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* keeps icon inside box without stretching */
+  object-fit: contain;
   display: block;
+  transition: transform 0.15s ease;
 }
 
-/* TEXT */
+.icon-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+.icon-wrapper img:active {
+  transform: scale(0.95);
+}
+
 .footer-text {
   font-size: 1.25rem;
   color: white;
   letter-spacing: 0.05rem;
 }
 
-/* HEARTS */
 .footer-hearts {
   color: white;
   font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
 
-/* CUSTOM SCROLLBAR (WEBKIT) */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--peach);
-  border-radius: 10px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .menu {
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .scroll-arrows {
-    right: -34px;
-  }
-}
-
-.symbols {
-  font-family: 'Poppins', sans-serif;
-}
-/* ICON HOVER & CLICK EFFECT */
-.menu button img,
-.icon-wrapper img,
-.close img {
-  transition: transform 0.15s ease; /* smooth animation */
-}
-
-/* Hover: slightly bigger */
-.menu button img:hover,
-.icon-wrapper img:hover,
-.close img:hover {
-  transform: scale(1.05);
-}
-.menu button img:active,
-.icon-wrapper img:active,
-.close img:active {
-  transform: scale(0.95);
-}
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 1400px) {
-  .pfp {
-    margin-left: 0;
-    width: 350px;
-    height: 350px;
-  }
-
-  .hoihoi-img {
-    width: 230px;
-    top: -80px;
-  }
-
-  .logo-img {
-    width: 260px;
-  }
-
-  .intro p {
-    font-size: 1.6rem;
-    top: 220px;
-  }
+  .pfp { width: 350px; height: 350px; }
+  .hoihoi-img { width: 230px; top: -80px; }
+  .logo-img { width: 260px; }
+  .intro p { font-size: 1.6rem; top: 220px; }
 }
 
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; text-align: center; }
+  .intro p, .hoihoi-img, .logo-img { position: relative; left: 0; transform: none; margin: 0 auto; top: 0; display: block; }
+  .menu { flex-wrap: wrap; gap: 2rem; top: auto; bottom: 20px; right: 50%; transform: translateX(50%); }
+}
