@@ -19,57 +19,56 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /* This ensures that if the content is still too tall, 
-     you can at least scroll to the footer */
+  /* Keeps the scrollbar active so you can reach the footer */
   overflow-y: auto; 
   overflow-x: hidden;
 }
 
-
+/* TOP BAR */
 .top-bar {
   width: 100%;
   height: 27px;
   background: #d74234;
-  /* Add these 3 lines */
   display: flex;
-  justify-content: center; /* This centers horizontally */
-  align-items: center;     /* This centers vertically */
-  overflow: hidden;        /* Keeps the hearts from leaking out */
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  overflow: hidden;
 }
 
 .top-hearts {
   color: var(--peach);
   font-size: 1.5rem;
   letter-spacing: 1rem;
-  white-space: nowrap;     /* Keeps the hearts in one single line */
+  white-space: nowrap;
 }
+
+/* MAIN CONTENT WRAPPER */
 .content-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  /* Add this to prevent it from growing too tall */
-  max-height: calc(100vh - 150px); 
+  /* Removed the max-height limit so content flows naturally */
 }
 
+/* HERO SECTION */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  /* Reduced top/bottom padding from 50px to 20px */
-  padding: 20px 20px 10px; 
+  padding: 40px 20px 10px; 
   width: 100%;
 }
 
 .pfp {
-  /* Reduced from 320px to 250px to save vertical space */
   width: 250px; 
   height: 250px;
   border-radius: 50%;
-  border: 8px solid #ff887d; /* Slightly thinner border */
+  border: 8px solid #ff887d;
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
@@ -85,15 +84,20 @@ body {
 .intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Keeps text aligned to the left of the logo */
+  align-items: flex-start;
 }
 
-/* Fix for the overlapping images */
-.hoihoi-img { width: 220px; margin-bottom: -15px; }
+/* ADJUSTMENT 1: Pushed Hoihoi down */
+.hoihoi-img { 
+  width: 220px; 
+  margin-bottom: 5px; 
+  margin-top: 40px; /* <--- This brings hoihoi down */
+}
+
 .logo-img { width: 300px; }
 .intro p { font-size: 1.8rem; margin-top: 10px; }
 
-/* MENU BOX - No more absolute positioning! */
+/* MENU */
 .menu {
   display: flex;
   flex-direction: row;
@@ -101,13 +105,15 @@ body {
   gap: 2rem;
   padding: 20px;
   width: 100%;
+  /* ADJUSTMENT 2: Pushed footer down by adding space here */
+  margin-bottom: 60px; 
 }
 
 .menu button {
   background: none;
   border: none;
   cursor: pointer;
-  width: 180px; /* Adjust based on your icon size */
+  width: 180px;
   font-family: 'Monday Feelings', cursive;
   font-size: 1.2rem;
 }
@@ -119,6 +125,7 @@ body {
   margin-bottom: 5px;
 }
 
+/* POPUP STYLES */
 .overlay {
   position: fixed;
   inset: 0;
@@ -128,7 +135,6 @@ body {
   justify-content: center;
   z-index: 9999;
 }
-
 
 .popup {
   position: relative;
@@ -150,42 +156,22 @@ body {
   pointer-events: none;
 }
 
-
 .popup-content {
   position: absolute;
-
   top: 120px;
   left: 55px;
   right: 60px;
   bottom: 35px;
-
   overflow-y: auto;
   z-index: 2;
   padding-right: 20px;
 }
 
-.popup-content h2 {
-  font-size: 2.2rem; 
-  margin-bottom: 15px;
-}
+.popup-content h2 { font-size: 2.2rem; margin-bottom: 15px; }
+.popup-content p { font-size: 1.5rem; line-height: 1.5; }
 
-
-.popup-content p {
-  font-size: 1.5rem; 
-  line-height: 1.5;  
-}
-
-
-
-.popup-content::-webkit-scrollbar {
-  width: 10px;
-}
-
-.popup-content::-webkit-scrollbar-thumb {
-  background: #f2b8a2;
-  border-radius: 10px;
-}
-
+.popup-content::-webkit-scrollbar { width: 10px; }
+.popup-content::-webkit-scrollbar-thumb { background: #f2b8a2; border-radius: 10px; }
 
 .gallery {
   display: grid;
@@ -193,7 +179,6 @@ body {
   gap: 15px;
   margin-top: 15px;
 }
-
 
 .thumb {
   width: 100%;
@@ -204,13 +189,9 @@ body {
   transition: transform 0.2s;
 }
 
+.thumb:hover { transform: scale(1.01); }
 
-.thumb:hover {
-  transform: scale(1.01);
-}
-
-
-/* Full-size image popup */
+/* IMAGE POPUP */
 .image-popup {
   display: none;
   position: fixed;
@@ -236,13 +217,9 @@ body {
   cursor: pointer;
 }
 
-/* ===============================
-   CLOSE BUTTON (FIXED PROPERLY)
-================================ */
+/* CLOSE BUTTON */
 .close {
   position: absolute;
-
-  /* ⬇️ PUSHED IN FROM EDGE SO IT SITS ON ART */
   top: 65px;
   right: 70px;
   background: none;
@@ -251,14 +228,9 @@ body {
   z-index: 4;
 }
 
-.close img {
-  width: 40px;
-  display: block;
-}
+.close img { width: 40px; display: block; }
 
-/* ===============================
-   SCROLL ARROW (BOTTOM RIGHT)
-================================ */
+/* SCROLL ARROW */
 .scroll-arrow {
   position: absolute;
   right: 55px;
@@ -269,15 +241,11 @@ body {
   z-index: 3;
 }
 
-.scroll-arrow img {
-  width: 36px;
-  display: block;
-}
-
+.scroll-arrow img { width: 36px; display: block; }
 
 /* FOOTER */
 .footer-wrapper {
-  margin-top: auto;
+  margin-top: auto; /* Keeps footer at bottom but respects content size */
   width: 100%;
 }
 
@@ -302,7 +270,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  align-items: center; /* vertically center icons */
+  align-items: center; 
 }
 
 .icon-wrapper {
@@ -316,71 +284,46 @@ body {
 .icon-wrapper img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain; /* keeps icon inside box without stretching */
+  object-fit: contain;
   display: block;
 }
 
-/* TEXT */
 .footer-text {
   font-size: 1.25rem;
   color: white;
   letter-spacing: 0.05rem;
 }
 
-/* HEARTS */
 .footer-hearts {
   color: white;
   font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
 
-/* CUSTOM SCROLLBAR (WEBKIT) */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--peach);
-  border-radius: 10px;
-}
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--peach); border-radius: 10px; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
+    flex-direction: column; /* Stacks PFP and Intro on small screens */
     text-align: center;
+  }
+  
+  .intro {
+    align-items: center;
   }
 
   .menu {
     gap: 2rem;
     flex-wrap: wrap;
   }
-
-  .scroll-arrows {
-    right: -34px;
-  }
 }
 
-.symbols {
-  font-family: 'Poppins', sans-serif;
-}
-/* ICON HOVER & CLICK EFFECT */
-.menu button img,
-.icon-wrapper img,
-.close img {
-  transition: transform 0.15s ease; /* smooth animation */
-}
+.symbols { font-family: 'Poppins', sans-serif; }
 
-/* Hover: slightly bigger */
-.menu button img:hover,
-.icon-wrapper img:hover,
-.close img:hover {
-  transform: scale(1.05);
-}
-
-/* Click/Active: slightly smaller */
-.menu button img:active,
-.icon-wrapper img:active,
-.close img:active {
-  transform: scale(0.95);
-}
+/* INTERACTIONS */
+.menu button img, .icon-wrapper img, .close img { transition: transform 0.15s ease; }
+.menu button img:hover, .icon-wrapper img:hover, .close img:hover { transform: scale(1.05); }
+.menu button img:active, .icon-wrapper img:active, .close img:active { transform: scale(0.95); }
